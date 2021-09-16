@@ -19,14 +19,13 @@ export default {
     };
   },
   created() {
-    (async () => {
-      try {
-        let apiCall = await EventService.getEvent();
-        this.events = apiCall.data;
-      } catch (e) {
+    EventService.getEvent()
+      .then((response) => {
+        this.events = response.data;
+      })
+      .catch((e) => {
         console.log("Error: " + e);
-      }
-    })();
+      });
   },
 };
 </script>
