@@ -8,8 +8,7 @@
         @<time>{{ event.time }}</time> on <time>{{ event.date }}</time>
       </span>
       <h4 class="title">{{ event.title }}</h4>
-      <BaseIcon name="users" />
-      <span>{{ event.attendees.length }} attendees</span>
+      <BaseIcon name="users">{{ event.attendees.length }} attendees</BaseIcon>
     </div>
   </router-link>
 </template>
