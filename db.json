@@ -7,15 +7,24 @@
         "name": "Adam"
       },
       "category": "animal welfare",
-      "organizer": "Adam",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
       "title": "Cat Cabaret",
       "description": "Yay felines!",
       "location": "Meow Town",
       "date": "2019-01-03T21:54:00.000Z",
       "time": "2:00",
       "attendees": [
-        { "id": "abc123", "name": "Adam Jahr" },
-        { "id": "def456", "name": "Gregg Pollack" }
+        {
+          "id": "abc123",
+          "name": "Adam Jahr"
+        },
+        {
+          "id": "def456",
+          "name": "Gregg Pollack"
+        }
       ]
     },
     {
@@ -25,7 +34,10 @@
         "name": "Adam"
       },
       "category": "animal welfare",
-      "organizer": "Adam",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
       "title": "Kitty Cluster",
       "description": "Yay cats!",
       "location": "Catlandia",
@@ -40,12 +52,51 @@
         "name": "Adam"
       },
       "category": "animal welfare",
-      "organizer": "Adam",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
       "title": "Puppy Parade",
       "description": "Yay pups!",
       "location": "Puptown ",
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
+      "attendees": []
+    },
+    {
+      "id": 623682,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Test",
+      "description": "",
+      "location": "",
+      "date": "2021-09-10T17:26:00.000Z",
+      "time": "5:00",
+      "attendees": []
+    },
+    {
+      "id": 6364073,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Test1",
+      "description": "testeste",
+      "location": "here",
+      "date": "2021-09-10T18:38:00.000Z",
+      "time": "22:00",
       "attendees": []
     }
   ]

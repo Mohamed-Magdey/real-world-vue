@@ -20,13 +20,14 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_EVENT(state, event) {
-      EventService.postEvent(event);
       state.events.push(event);
     },
   },
   actions: {
     createEvent({ commit }, event) {
-      commit("ADD_EVENT", event);
+      return EventService.postEvent(event).then(() => {
+        commit("ADD_EVENT", event);
+      });
     },
   },
   getters: {
