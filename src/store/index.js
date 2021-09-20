@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import EventService from "@/services/EventService.js";
+import * as user from "@/store/modules/user.js";
+import * as event from "@/store/modules/event.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: { id: "abc123", name: "Adam Jahr" },
     categories: [
       "sustainability",
       "nature",
@@ -16,36 +16,9 @@ export default new Vuex.Store({
       "food",
       "community",
     ],
-    events: [],
-    totalEvents: 0,
   },
-  mutations: {
-    ADD_EVENT(state, event) {
-      state.events.push(event);
-    },
-    SET_EVENTS(state, events) {
-      state.events = events;
-    },
-    SET_TOTAl(state, total) {
-      state.totalEvents = total;
-    },
+  modules: {
+    user,
+    event,
   },
-  actions: {
-    createEvent({ commit }, event) {
-      return EventService.postEvent(event).then(() => {
-        commit("ADD_EVENT", event);
-      });
-    },
-    fetchEvents({ commit }, { perPage, page }) {
-      EventService.getEvent(perPage, page)
-        .then((response) => {
-          commit("SET_TOTAl", response.headers["x-total-count"]);
-          commit("SET_EVENTS", response.data);
-        })
-        .catch((e) => {
-          console.log("Error: " + e);
-        });
-    },
-  },
-  modules: {},
 });
