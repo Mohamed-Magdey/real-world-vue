@@ -10,16 +10,6 @@ const apiClient = axios.create({
   },
 });
 
-apiClient.interceptors.request.use((res) => {
-  NProgress.start();
-  return res;
-});
-
-apiClient.interceptors.response.use((config) => {
-  NProgress.done();
-  return config;
-});
-
 export default {
   getEvent(perPage, page) {
     return apiClient.get(`/events?_limit=${perPage}&_page=${page}`);

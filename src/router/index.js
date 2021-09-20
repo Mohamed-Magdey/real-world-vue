@@ -32,7 +32,7 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeResolve((routeTo, routeFrom, next) => {
+router.beforeEach((routeTo, routeFrom, next) => {
   NProgress.start();
   next();
 });
