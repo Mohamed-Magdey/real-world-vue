@@ -20,19 +20,41 @@ export const mutations = {
 };
 
 export const actions = {
-  createEvent({ commit }, event) {
-    return EventService.postEvent(event).then(() => {
-      commit("ADD_EVENT", event);
-    });
+  createEvent({ commit, dispatch }, event) {
+    return EventService.postEvent(event)
+      .then(() => {
+        commit("ADD_EVENT", event);
+
+        const notification = {
+          type: "success",
+          message: "Your event has been created!",
+        };
+
+        dispatch("notification/add", notification, { root: true });
+      })
+      .catch((e) => {
+        const notification = {
+          type: "error",
+          message: `There was a problem creating your event: ${e.message}`,
+        };
+
+        dispatch("notification/add", notification, { root: true });
+        throw e;
+      });
   },
-  fetchEvents({ commit }, { perPage, page }) {
+  fetchEvents({ commit, dispatch }, { perPage, page }) {
     EventService.getEvent(perPage, page)
       .then((response) => {
         commit("SET_TOTAl", response.headers["x-total-count"]);
         commit("SET_EVENTS", response.data);
       })
       .catch((e) => {
-        console.log("Error: " + e);
+        const notification = {
+          type: "error",
+          message: `There was a problem fetching events: ${e.message}`,
+        };
+
+        dispatch("notification/add", notification, { root: true });
       });
   },
 };
