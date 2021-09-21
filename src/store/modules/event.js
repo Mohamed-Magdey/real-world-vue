@@ -59,3 +59,12 @@ export const actions = {
       });
   },
 };
+
+export const getters = {
+  eventsIDs: (state) => {
+    return state.events.map((event) => event.id);
+  },
+  checkID: (state, getters) => (id) => {
+    return getters.eventsIDs.find((eventID) => eventID === id);
+  },
+};

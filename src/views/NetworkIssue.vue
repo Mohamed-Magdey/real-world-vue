@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>Oops!</h1>
-    <h3>The {{ resource }} you're looking for is not here.</h3>
+    <h1>Uh-Oh!</h1>
+    <h3>
+      It looks like you're experiencing some network issues, please click the
+      back button and try again.
+    </h3>
     <router-link :to="{ name: 'event-list' }">
       Back to the home page
     </router-link>
@@ -14,7 +17,6 @@ export default {
     resource: {
       type: String,
       required: true,
-      default: "page",
     },
   },
 };
