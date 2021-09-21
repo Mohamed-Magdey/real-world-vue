@@ -121,7 +121,8 @@ small {
   font-weight: 400;
   line-height: 26px;
 }
-.badge.-fill-gradient {
+.badge.-fill-gradient,
+.button.-fill-gradient {
   background: linear-gradient(to right, #16c0b0, #84cf6a);
   color: #fff;
 }

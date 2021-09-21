@@ -48,7 +48,10 @@
         :selected="option === value"
         class="field"
       />
-      <input type="submit" class="button -fill-gradient" value="Submit" />
+
+      <BaseButton type="submit" class="button -fill-gradient">
+        Submit
+      </BaseButton>
     </form>
   </div>
 </template>
