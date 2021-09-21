@@ -5,7 +5,7 @@
   >
     <div class="event-card -shadow">
       <span class="eyebrow">
-        @<time>{{ event.time }}</time> on <time>{{ handleDate }}</time>
+        @<time>{{ event.time }}</time> on <time>{{ event.date | date }}</time>
       </span>
       <h4 class="title">{{ event.title }}</h4>
       <BaseIcon name="users">{{ event.attendees.length }} attendees</BaseIcon>
@@ -17,12 +17,6 @@
 export default {
   props: {
     event: Object,
-  },
-  computed: {
-    handleDate() {
-      let newDate = new Date(this.event.date);
-      return newDate.toDateString();
-    },
   },
 };
 </script>

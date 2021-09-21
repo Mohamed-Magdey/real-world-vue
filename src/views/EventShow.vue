@@ -2,7 +2,7 @@
   <div>
     <div class="event-header">
       <span class="eyebrow">
-        @<time>{{ event.time }}</time> on <time>{{ handleDate }}</time>
+        @<time>{{ event.time }}</time> on <time>{{ event.date | date }}</time>
       </span>
       <h1 class="title">{{ event.title }}</h1>
       <h5>Organized by {{ event.organizer.name }}</h5>
@@ -31,12 +31,6 @@
 <script>
 export default {
   props: ["id", "event"],
-  computed: {
-    handleDate() {
-      let newDate = new Date(this.event.date);
-      return newDate.toDateString();
-    },
-  },
 };
 </script>
 
