@@ -2,7 +2,9 @@
   <div id="app">
     <NavBar />
     <NotificationContainer />
-    <router-view :key="$route.fullPath" />
+    <transition name="slide-fade" mode="out-in">
+      <router-view :key="$route.fullPath" />
+    </transition>
   </div>
 </template>
 
@@ -251,5 +253,21 @@ select::ms-expand {
 }
 .errorMessage {
   color: red;
+}
+
+/* Transitions */
+.slide-fade-enter {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.2s ease;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>
