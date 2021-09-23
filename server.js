@@ -45,7 +45,7 @@ app.post("/register", (req, res) => {
     if (dbUserEmail === user.email) {
       errorsToSend.push("An account with this email already exists.");
     }
-    if (user.password < 5) {
+    if (user.password.length < 5) {
       errorsToSend.push("Password too short.");
     }
     if (errorsToSend.length > 0) {
